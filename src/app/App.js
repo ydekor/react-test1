@@ -4,8 +4,9 @@ function App() {
   return (
     <div className="App">
       <div className="testWindow">
-          aboba
-          123
+          <div className="testText">
+              test
+          </div>
       </div>
     </div>
   );

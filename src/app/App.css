@@ -1,1 +1,2 @@
-.testWindow {position: absolute; top: 50%; left: 50%; border: thick double #32a1ce}
+.testWindow {display: flex; justify-content: center; align-items: center; height: 100vh}
+.testText {border: thick double #32a1ce}
