@@ -1,13 +1,28 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.topLine {
+    background-color: grey;
+}
+.container {
+    flex: 1;
+    display: flex;
+}
+.sidePanel {
+    background-color: chartreuse;
+    width: 20%;
+}
 .testWindow {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh
+    height: 100vh;
+    background-color: blue;
 }
 .testText {
     border: thick double #32a1ce
 }
-.topLine {
-    background-color: grey;
-    height: 5vh;
-}
+
