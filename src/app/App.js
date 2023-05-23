@@ -1,18 +1,15 @@
 import './App.css';
+import TopLine from "./top/Top";
+import LeftPanel from "./leftPanel/LeftPanel";
+import Content from "./content/Content";
 
 function App() {
   return (
     <div className="App">
-        <div className="topLine">
-            <div className="topButtons">
-                <button className="Menu" type="button">Menu</button>
-            </div>
-        </div>
+        <TopLine />
         <div className="container">
-            <div className="sidePanel">111</div>
-            <div className="testWindow">
-                <div className="testText">test</div>
-            </div>
+            <LeftPanel />
+            <Content />
         </div>
     </div>
   );

@@ -3,32 +3,9 @@
     flex-direction: column;
     height: 100vh;
 }
-.topLine {
-    background-color: grey;
-}
-.Menu {
-    height: 30px;
-    width: 152px;
-}
-.topButtons {
-    margin: 10px;
-}
 .container {
     flex: 1;
     display: flex;
 }
-.sidePanel {
-    background-color: chartreuse;
-    width: 20%;
-}
-.testWindow {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;
-}
-.testText {
-    border: thick double #32a1ce
-}
+
 
