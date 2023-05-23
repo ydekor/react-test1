@@ -1,10 +1,10 @@
-import './Top.css';
+import top from './Top.module.css';
 
 function TopLine() {
     return (
-        <div className="topLine">
-            <div className="topButtons">
-                <button className="Menu" type="button">Menu</button>
+        <div className={top.topLine}>
+            <div className={top.topButtons}>
+                <button className={top.Menu} type="button">Menu</button>
             </div>
         </div>
     );

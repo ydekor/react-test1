@@ -1,8 +1,8 @@
-import './LeftPanel.css';
+import leftPanel from './LeftPanel.module.css';
 
 function LeftPanel() {
     return (
-        <div className="sidePanel">111</div>
+        <div className={leftPanel.sidePanel}>111</div>
     );
 }
 export default LeftPanel;

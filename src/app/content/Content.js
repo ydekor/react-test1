@@ -1,9 +1,9 @@
-import './Content.css';
+import content from './Content.module.css';
 
 function Content() {
     return (
-        <div className="testWindow">
-            <div className="testText">test</div>
+        <div className={content.testWindow}>
+            <div className={content.testText}>test</div>
         </div>
     );
 }
