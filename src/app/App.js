@@ -5,7 +5,7 @@ function App() {
     <div className="App">
         <div className="topLine">
             <div className="topButtons">
-                <button class="Menu" type="button">Menu</button>
+                <button className="Menu" type="button">Menu</button>
             </div>
         </div>
         <div className="container">
