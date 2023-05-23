@@ -1,2 +1,13 @@
-.testWindow {display: flex; justify-content: center; align-items: center; height: 100vh}
-.testText {border: thick double #32a1ce}
+.testWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+}
+.testText {
+    border: thick double #32a1ce
+}
+.topLine {
+    background-color: grey;
+    height: 5vh;
+}
