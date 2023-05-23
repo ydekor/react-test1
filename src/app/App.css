@@ -6,6 +6,13 @@
 .topLine {
     background-color: grey;
 }
+.Menu {
+    height: 30px;
+    width: 152px;
+}
+.topButtons {
+    margin: 10px;
+}
 .container {
     flex: 1;
     display: flex;

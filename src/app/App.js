@@ -3,7 +3,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-        <div className="topLine">dsa</div>
+        <div className="topLine">
+            <div className="topButtons">
+                <button class="Menu" type="button">Menu</button>
+            </div>
+        </div>
         <div className="container">
             <div className="sidePanel">111</div>
             <div className="testWindow">
