@@ -1,8 +1,8 @@
-import leftPanel from './LeftPanel.module.css';
+import style from './LeftPanel.module.css';
 
-function LeftPanel() {
+function LeftPanel({isVisible}) {
     return (
-        <div className={leftPanel.sidePanel}>111</div>
+        <div className={`${style.sidePanel} ${isVisible ? '' : style.hidden}`}>111</div>
     );
 }
 export default LeftPanel;

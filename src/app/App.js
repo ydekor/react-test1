@@ -1,17 +1,24 @@
-import app from './App.module.css';
+import React, {useState} from 'react';
+import style from './App.module.css';
 import TopLine from "./top/Top";
 import LeftPanel from "./leftPanel/LeftPanel";
 import Content from "./content/Content";
 
 function App() {
-  return (
-    <div className={app.App}>
-        <TopLine />
-        <div className={app.container}>
-            <LeftPanel />
+    const [sidePanelVisible, setSidePanelVisible] = useState(true);
+
+    const toggleSidePanel = () => {
+        setSidePanelVisible(!sidePanelVisible);
+    }
+
+    return (
+    <div className={style.App}>
+        <TopLine toggleSidePanel={toggleSidePanel}/>
+        <div className={style.container}>
+            <LeftPanel isVisible={sidePanelVisible}/>
             <Content />
         </div>
     </div>
-  );
+    );
 }
 export default App;

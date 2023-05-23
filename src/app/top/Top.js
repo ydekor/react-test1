@@ -1,10 +1,10 @@
-import top from './Top.module.css';
+import style from './Top.module.css';
 
-function TopLine() {
+function TopLine({toggleSidePanel}) {
     return (
-        <div className={top.topLine}>
-            <div className={top.topButtons}>
-                <button className={top.Menu} type="button">Menu</button>
+        <div className={style.topLine}>
+            <div className={style.topButtons}>
+                <button className={style.Menu} type="button" onClick={toggleSidePanel}>Menu</button>
             </div>
         </div>
     );
