@@ -5,7 +5,7 @@ import LeftPanel from "./leftPanel/LeftPanel";
 import Content from "./content/Content";
 
 function App() {
-    const [sidePanelVisible, setSidePanelVisible] = useState(true);
+    const [sidePanelVisible, setSidePanelVisible] = useState(false);
 
     const toggleSidePanel = () => {
         setSidePanelVisible(!sidePanelVisible);
