@@ -1,0 +1,31 @@
+.headerCom {
+    border: thick double #32a1ce;
+}
+.comment {
+    margin: 4px;
+}
+
+.headerAuthor {
+    display: flex;
+}
+.userName {
+    color: red;
+    margin-right: 4px;
+}
+.userDate {
+    color: green;
+}
+
+.contentCom {
+    display: inline-block;
+}
+
+.buttonsCom {
+    color: darkcyan;
+}
+.buttonLike {
+    color:grey;
+}
+.buttonDis {
+    color:grey
+}

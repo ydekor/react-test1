@@ -3,6 +3,7 @@ import style from './App.module.css';
 import TopLine from "./top/Top";
 import LeftPanel from "./leftPanel/LeftPanel";
 import Content from "./content/Content";
+import Comments from "./comments/Comments";
 
 function App() {
     const [sidePanelVisible, setSidePanelVisible] = useState(false);
@@ -11,14 +12,13 @@ function App() {
         setSidePanelVisible(!sidePanelVisible);
     }
 
-    return (
-    <div className={style.App}>
+
+    return <div className={style.App}>
         <TopLine toggleSidePanel={toggleSidePanel}/>
         <div className={style.container}>
-            <LeftPanel isVisible={sidePanelVisible}/>
+            {sidePanelVisible && <LeftPanel />}
             <Content />
         </div>
     </div>
-    );
 }
 export default App;
