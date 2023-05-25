@@ -1,8 +1,8 @@
 .testWindow {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /*flex: 1;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
 }
 .testText {
     border: thick double #32a1ce

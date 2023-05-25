@@ -1,6 +1,6 @@
 import style from './Comments.module.css';
 
-const Comments = (props)  => {
+function Comment(props) {
     return <div className={style.comment}>
         <div className={style.headerCom}>
             <div className={style.headerAuthor}>
@@ -18,4 +18,4 @@ const Comments = (props)  => {
     </div>
 }
 
-export default Comments;
+export default Comment;

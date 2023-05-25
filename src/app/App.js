@@ -3,7 +3,7 @@ import style from './App.module.css';
 import TopLine from "./top/Top";
 import LeftPanel from "./leftPanel/LeftPanel";
 import Content from "./content/Content";
-import Comments from "./comments/Comments";
+
 
 function App() {
     const [sidePanelVisible, setSidePanelVisible] = useState(false);

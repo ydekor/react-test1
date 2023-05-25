@@ -1,5 +1,6 @@
 .headerCom {
     border: thick double #32a1ce;
+    width: 60vh;
 }
 .comment {
     margin: 4px;
