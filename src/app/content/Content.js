@@ -1,6 +1,6 @@
 import style from './Content.module.css';
 import Comment from "../comments/Comments";
-import React from "react";
+import React, {useState} from "react";
 
 //const comments = { id: 1, name: 'user1', created: 'da', comment: 'text'}
 //const comments = [{id: 1}, {name: 'user1'}, {created: 'da'}, {comment: 'text'}];
@@ -70,15 +70,48 @@ const arr = [
 ]
 
 function Content() {
-    return (
-        <div className={style.testWindow}>
-            {arr.map(e => <Comment
+    const [text1, setText1] = useState('');
+    const [text2, setText2] = useState('');
+    const [comments, setComments] = useState(arr);
+
+    const handleChange1 = (event) => {
+        setText1(event.target.value);
+    }
+    const handleChange2 = (event) => {
+        setText2(event.target.value);
+    }
+
+    const sendData = () => {
+        const newArr = {
+            id: comments.length + 1,
+            name: text1,
+            created: new Date().toLocaleDateString(),
+            comment: text2,
+        }
+        setComments([...comments, newArr]);
+        setText1('');
+        setText2('');
+    }
+
+    return <div className={style.testWindow}>
+        <div className={style.inputData}>
+            <div><input type="text" className={style.inputName} placeholder={"input name"} value={text1} onChange={handleChange1} /></div>
+            <div><input type="text" className={style.inputComment} placeholder={"input comment"} value={text2} onChange={handleChange2} /></div>
+            {/*<p>{text1}</p>*/}
+            {/*<p>{text2}</p>*/}
+        </div>
+        <div className={style.sendData}>
+            <button onClick={sendData}>send</button>
+        </div>
+        <div>
+            {comments.map(e => <Comment
+                key={e.id}
                 userName={e.name}
                 userDate={e.created}
                 commentText={e.comment}
             />)}
             {/*<Comment userName="oleg" userDate="22.02.13" commentText="dsadasdsadasdasADSdasdasdasdsa" />*/}
         </div>
-    );
+    </div>
 }
 export default Content;

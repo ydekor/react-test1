@@ -1,6 +1,7 @@
 import style from './Comments.module.css';
 
 function Comment(props) {
+
     return <div className={style.comment}>
         <div className={style.headerCom}>
             <div className={style.headerAuthor}>

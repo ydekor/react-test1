@@ -3,7 +3,23 @@
     /*display: flex;*/
     /*justify-content: center;*/
     /*align-items: center;*/
+
 }
 .testText {
     border: thick double #32a1ce
+}
+.sendData {
+
+}
+.inputData {
+    margin: 4px;
+    display: block;
+}
+.inputComment {
+    width: 60vh;
+    color:grey;
+}
+.inputName {
+    width: 60vh;
+    color: grey;
 }
