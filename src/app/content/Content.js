@@ -56,6 +56,11 @@ function Content() {
         setCommentText('');
     }
 
+    const handleDelete = (id) => {
+        const updateComments = comments.filter(comment => comment.id !== id);
+        setComments(updateComments);
+    }
+
     return <div className={style.mainWindow}>
         <div className={style.inputData}>
             <div><input type="text" className={style.inputName} placeholder={"input name"} value={nameText} onChange={nameOnChange} /></div>
@@ -70,6 +75,7 @@ function Content() {
                 userName={e.name}
                 userDate={e.created}
                 commentText={e.comment}
+                onDelete={() => handleDelete(e.id)}
             />)}
             {/*<Comment userName="oleg" userDate="22.02.13" commentText="dsadasdsadasdasADSdasdasdasdsa" />*/}
         </div>

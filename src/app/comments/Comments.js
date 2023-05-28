@@ -1,4 +1,6 @@
 import style from './Comments.module.css';
+import React from "react";
+//import Content from "../content/Content";
 
 function Comment(props) {
 
@@ -14,6 +16,9 @@ function Comment(props) {
             <div className={style.buttonsCom}>
                 <button className={style.buttonLike}>like</button>
                 <button className={style.buttonDis}>dislike</button>
+                <button className={style.buttonDelete} onClick={props.onDelete}>
+                    Delete
+                </button>
             </div>
         </div>
     </div>

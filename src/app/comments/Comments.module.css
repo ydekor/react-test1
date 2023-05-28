@@ -28,5 +28,9 @@
     color:grey;
 }
 .buttonDis {
-    color:grey
+    color:grey;
+}
+.buttonDelete {
+    color:red;
+    margin-left: 75%;
 }
