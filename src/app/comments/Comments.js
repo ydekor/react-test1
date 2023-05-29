@@ -7,8 +7,13 @@ function Comment(props) {
     return <div className={style.comment}>
         <div className={style.headerCom}>
             <div className={style.headerAuthor}>
-                <div className={style.userName}>{props.userName}</div>
-                <div className={style.userDate}>{props.userDate}</div>
+                <div className={style.userDetails}>
+                    <div className={style.userName}>{props.userName}</div>
+                    <div className={style.userDate}>{props.userDate}</div>
+                </div>
+                <div className={style.rightAlign}>
+                    <button className={style.buttonDelete} onClick={props.onDelete}>✖</button>
+                </div>
             </div>
             <div className={style.contentCom}>
                 {props.commentText}
@@ -16,9 +21,6 @@ function Comment(props) {
             <div className={style.buttonsCom}>
                 <button className={style.buttonLike}>like</button>
                 <button className={style.buttonDis}>dislike</button>
-                <button className={style.buttonDelete} onClick={props.onDelete}>
-                    Delete
-                </button>
             </div>
         </div>
     </div>
