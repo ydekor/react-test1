@@ -32,6 +32,10 @@
 .buttonLike {
     color:grey;
 }
+.voteCount {
+    margin-left: 4px;
+}
+
 .buttonDis {
     color:grey;
 }

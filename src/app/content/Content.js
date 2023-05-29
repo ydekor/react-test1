@@ -10,25 +10,29 @@ const CommentsArr = [
         id: 1,
         name: 'anon1',
         created: new Date().toLocaleDateString(),
-        comment: 'awesome'
+        comment: 'awesome',
+        votes: 0,
     },
     {
         id: 2,
         name: 'anon2',
         created: new Date().toLocaleDateString(),
-        comment: 'hi'
+        comment: 'hi',
+        votes: 0,
     },
     {
         id: 3,
         name: 'anon3',
         created: new Date().toLocaleDateString(),
-        comment: 'kal'
+        comment: 'kal',
+        votes: 0,
     },
     {
         id: 4,
         name: 'anon4',
         created: new Date().toLocaleDateString(),
-        comment: 'va'
+        comment: 'va',
+        votes: 0,
     },
 ]
 
@@ -50,7 +54,8 @@ function Content() {
             name: nameText,
             created: new Date().toLocaleDateString(),
             comment: commentText,
-        }
+            votes: 0,
+            }
         setComments([...comments, newCommentsArr]);
         setName('');
         setCommentText('');
@@ -60,6 +65,20 @@ function Content() {
         const updateComments = comments.filter(comment => comment.id !== id);
         setComments(updateComments);
     }
+
+    const handleVote = (id, type) => {
+        const updatedComments = comments.map((comment) => {
+            if (comment.id === id) {
+                if (type === 'like') {
+                    return { ...comment, votes: comment.votes + 1 };
+                } else if (type === 'dislike') {
+                    return { ...comment, votes: comment.votes - 1 };
+                }
+            }
+            return comment;
+        });
+        setComments(updatedComments);
+    };
 
     return <div className={style.mainWindow}>
         <div className={style.inputData}>
@@ -75,7 +94,9 @@ function Content() {
                 userName={e.name}
                 userDate={e.created}
                 commentText={e.comment}
+                votes={e.votes}
                 onDelete={() => handleDelete(e.id)}
+                onVote={(type) => handleVote(e.id, type)}
             />)}
             {/*<Comment userName="oleg" userDate="22.02.13" commentText="dsadasdsadasdasADSdasdasdasdsa" />*/}
         </div>
