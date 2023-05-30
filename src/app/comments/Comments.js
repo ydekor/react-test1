@@ -3,14 +3,6 @@ import React from "react";
 //import Content from "../content/Content";
 
 function Comment(props) {
-    // const [votes, setVotes] = useState(0);
-    // const handleVote = (type) => {
-    //     if (type === 'like') {
-    //         setVotes(votes + 1);
-    //     } else if (type === 'dislike') {
-    //         setVotes(votes - 1);
-    //     }
-    // };
     const voteCountColor = props.votes > 0 ? 'green' : props.votes < 0 ? 'red' : '';
 
 
@@ -25,8 +17,9 @@ function Comment(props) {
                     <button className={style.buttonDelete} onClick={props.onDelete}>✖</button>
                 </div>
             </div>
-            <div className={style.contentCom}>
-                {props.commentText}
+            <div className={style.commentText}>
+                <div className={style.contentCom}>{props.commentText}</div>
+                <button className={style.buttonStyle}>edit</button>
             </div>
             <div className={style.buttonsCom}>
                 <button className={style.buttonLike} onClick={() => props.onVote('like')}>like</button>

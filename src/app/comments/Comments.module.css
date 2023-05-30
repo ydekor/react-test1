@@ -22,8 +22,22 @@
     color: green;
 }
 
+.commentText {
+    display: flex;
+    justify-content: space-between;
+}
 .contentCom {
-    display: inline-block;
+    color: red;
+}
+.buttonStyle {
+    background-color: transparent;
+    border: none;
+    margin-right: 2px;
+    margin-top: 2px;
+}
+.buttonStyle:hover {
+    background-color: lightgray;
+    color: white;
 }
 
 .buttonsCom {
@@ -46,7 +60,16 @@
 }
 .buttonDelete {
     color:red;
+    background-color: transparent;
+    border: none;
     text-align: right;
     margin-right: 2px;
     margin-top: 2px;
+}
+.buttonDelete:hover {
+    background-color: lightgrey;
+}
+
+.commentInput {
+    color: green;
 }
