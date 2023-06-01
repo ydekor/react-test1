@@ -7,6 +7,7 @@ import Login from "./login/Login"
 
 function App() {
     const [sidePanelVisible, setSidePanelVisible] = useState(false);
+    const [currentView, setCurrentView] = useState(null);
 
     const toggleSidePanel = () => {
         setSidePanelVisible(!sidePanelVisible);
@@ -15,8 +16,13 @@ function App() {
     return <div className={style.App}>
         <TopLine toggleSidePanel={toggleSidePanel}/>
         <div className={style.container}>
-            {sidePanelVisible && <LeftPanel />}
-            <Login />
+            <div>
+                {sidePanelVisible && <LeftPanel setCurrentView={setCurrentView} />}
+            </div>
+            <div>
+                {currentView === 'main' && <Content />}
+                {currentView === 'login' && <Login />}
+            </div>
         </div>
     </div>
 }

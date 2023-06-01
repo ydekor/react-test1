@@ -12,7 +12,7 @@ function Login() {
                 <input type="text" />
             </div>
             <div className={style.buttonLogin}>
-                <button className="button">Login</button>
+                <button>Login</button>
             </div>
         </div>
     </div>

@@ -1,12 +1,20 @@
 import style from './LeftPanel.module.css';
 
-function LeftPanel() {
-    return (
-        // <div className={`${style.sidePanel} ${isVisible ? '' : style.hidden}`}>111</div>
-        <div className={style.sidePanel}>111</div>
-        // <div>{isVisible && style.sidePanel}</div>
-        //<div>{isVisible ? (<div className={style.sidePanel}>111</div>) : null}</div>
+function LeftPanel({setCurrentView}) {
+    const showMain = () => {
+        setCurrentView('main');
+    }
+    const showLogin = () => {
+        setCurrentView('login');
+    }
 
+    return (
+        <div className={style.sidePanel}>
+            <div className={style.buttons}>
+                <div><button className={style.button} onClick={showMain}>main</button></div>
+                <div><button className={style.button} onClick={showLogin}>login</button></div>
+            </div>
+        </div>
     );
 }
 export default LeftPanel;

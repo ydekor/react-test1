@@ -1,5 +1,14 @@
 .sidePanel {
-    background-color: chartreuse;
-
+    background-color: lightgrey;
     width: 20vh;
+    height: 100%;
+}
+
+.buttons {
+    justify-items: center;
+}
+.button {
+    background-color: lightblue;
+    margin: 2px;
+    width: 100px;
 }
