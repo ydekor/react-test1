@@ -40,31 +40,34 @@ function Content() {
     const [nameText, setName] = useState('');
     const [commentText, setCommentText] = useState('');
     const [comments, setComments] = useState(CommentsArr);
+    const [editingCommentId, setEditingCommentId] = useState(null);
+    const [editingCommentText, setEditingCommentText] = useState('');
 
     const nameOnChange = (event) => {
         setName(event.target.value);
-    }
+    };
+
     const commentOnChange = (event) => {
         setCommentText(event.target.value);
-    }
+    };
 
     const addComment = () => {
-            const newCommentsArr = {
+        const newComment = {
             id: comments.length + 1,
             name: nameText,
             created: new Date().toLocaleDateString(),
             comment: commentText,
             votes: 0,
-            }
-        setComments([...comments, newCommentsArr]);
+        };
+        setComments([...comments, newComment]);
         setName('');
         setCommentText('');
-    }
+    };
 
     const handleDelete = (id) => {
-        const updateComments = comments.filter(comment => comment.id !== id);
-        setComments(updateComments);
-    }
+        const updatedComments = comments.filter((comment) => comment.id !== id);
+        setComments(updatedComments);
+    };
 
     const handleVote = (id, type) => {
         const updatedComments = comments.map((comment) => {
@@ -80,26 +83,74 @@ function Content() {
         setComments(updatedComments);
     };
 
-    return <div className={style.mainWindow}>
-        <div className={style.inputData}>
-            <div><input type="text" className={style.inputName} placeholder={"input name"} value={nameText} onChange={nameOnChange} /></div>
-            <div><input type="text" className={style.inputComment} placeholder={"input comment"} value={commentText} onChange={commentOnChange} /></div>
+    const handleEdit = (id, commentText) => {
+        setEditingCommentId(id);
+        setEditingCommentText(commentText);
+    };
+
+    const handleSaveComment = (id, commentText) => {
+        const updatedComments = comments.map((comment) => {
+            if (comment.id === id) {
+                return { ...comment, comment: commentText };
+            }
+            return comment;
+        });
+        setComments(updatedComments);
+        setEditingCommentId(null);
+        setEditingCommentText('');
+    };
+
+    const handleCancel = () => {
+        setEditingCommentId(null);
+        setEditingCommentText('');
+    };
+
+    return (
+        <div className={style.mainWindow}>
+            <div className={style.inputData}>
+                <div>
+                    <input
+                        type="text"
+                        className={style.inputName}
+                        placeholder="input name"
+                        value={nameText}
+                        onChange={nameOnChange}
+                    />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        className={style.inputComment}
+                        placeholder="input comment"
+                        value={commentText}
+                        onChange={commentOnChange}
+                    />
+                </div>
+            </div>
+            <div className={style.sendData}>
+                <button onClick={addComment}>send</button>
+            </div>
+            <div>
+                {comments.map((e) => (
+                    <Comment
+                        key={e.id}
+                        commentId={e.id}
+                        userName={e.name}
+                        userDate={e.created}
+                        commentText={e.comment}
+                        votes={e.votes}
+                        onDelete={() => handleDelete(e.id)}
+                        onVote={(type) => handleVote(e.id, type)}
+                        onEdit={handleEdit}
+                        onSave={handleSaveComment}
+                        onCancel={handleCancel}
+                        editingCommentId={editingCommentId}
+                        editingCommentText={editingCommentText}
+                        setEditingCommentText={setEditingCommentText}
+                    />
+                ))}
+            </div>
         </div>
-        <div className={style.sendData}>
-            <button onClick={addComment}>send</button>
-        </div>
-        <div>
-            {comments.map(e => <Comment
-                key={e.id}
-                userName={e.name}
-                userDate={e.created}
-                commentText={e.comment}
-                votes={e.votes}
-                onDelete={() => handleDelete(e.id)}
-                onVote={(type) => handleVote(e.id, type)}
-            />)}
-            {/*<Comment userName="oleg" userDate="22.02.13" commentText="dsadasdsadasdasADSdasdasdasdsa" />*/}
-        </div>
-    </div>
+    );
 }
 export default Content;
