@@ -1,0 +1,32 @@
+.authentication {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.content {
+    border: solid 1px lightgreen;
+    padding: 4px;
+    margin-left: 1px;
+}
+
+.login {
+    color: darkred;
+    margin-bottom: 1px;
+}
+.loginTextField {
+    color:grey;
+}
+
+.password {
+    color: darkred;
+}
+.passwordTextField {
+    color: grey;
+}
+
+.buttonLogin {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

@@ -1,6 +1,5 @@
 import style from './Comments.module.css';
 import React from "react";
-//import Content from "../content/Content";
 
 function Comment(props) {
     const voteCountColor = props.votes > 0 ? 'green' : props.votes < 0 ? 'red' : '';

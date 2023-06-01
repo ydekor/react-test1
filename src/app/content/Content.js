@@ -2,9 +2,6 @@ import style from './Content.module.css';
 import Comment from "../comments/Comments";
 import React, {useState} from "react";
 
-//const comments = { id: 1, name: 'user1', created: 'da', comment: 'text'}
-//const comments = [{id: 1}, {name: 'user1'}, {created: 'da'}, {comment: 'text'}];
-
 const CommentsArr = [
     {
         id: 1,

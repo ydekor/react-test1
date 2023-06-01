@@ -3,6 +3,7 @@ import style from './App.module.css';
 import TopLine from "./top/Top";
 import LeftPanel from "./leftPanel/LeftPanel";
 import Content from "./content/Content";
+import Login from "./login/Login"
 
 function App() {
     const [sidePanelVisible, setSidePanelVisible] = useState(false);
@@ -15,7 +16,7 @@ function App() {
         <TopLine toggleSidePanel={toggleSidePanel}/>
         <div className={style.container}>
             {sidePanelVisible && <LeftPanel />}
-            <Content />
+            <Login />
         </div>
     </div>
 }
