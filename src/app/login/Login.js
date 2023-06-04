@@ -5,21 +5,37 @@ function Login() {
         const loginInput = document.getElementById('loginInput').value;
         const passwordInput = document.getElementById('passwordInput').value;
 
-        const response = await fetch('http://alwertus.zapto.org/spab/user/login', {
-           method: 'POST',
-           headers: {
-               'Content-Type': 'application/json'
-           },
-           body: JSON.stringify({
-               login: loginInput,
-               password: passwordInput
-           })
-        });
-        if(response.ok) {
-            console.log('success');
-        } else {
-            console.log('error');
-        }
+        const request = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({login: loginInput, password: passwordInput})
+        };
+        fetch('http://alwertus.zapto.org/spab/user/login', request)
+            .then(response => response.json())
+            .then(data => {
+                console.log('data', data);
+            })
+            .catch(error => {
+                console.log('error', error);
+            });
+
+        // const response = await fetch('http://alwertus.zapto.org/spab/user/login', {
+        //    method: 'POST',
+        //    headers: {
+        //        'Content-Type': 'application/json'
+        //    },
+        //    body: JSON.stringify({
+        //        login: loginInput,
+        //        password: passwordInput
+        //    })
+        // });
+        // if(response.ok) {
+        //     console.log('success');
+        // } else {
+        //     console.log('error');
+        // }
     };
 
     return <div className={style.authentication}>
