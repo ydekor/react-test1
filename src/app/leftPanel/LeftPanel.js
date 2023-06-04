@@ -1,10 +1,7 @@
 import style from './LeftPanel.module.css';
+import {View} from "../helper/LeftButtons";
 
 function LeftPanel({setCurrentView}) {
-    const View = {
-        Main: 'main',
-        Login: 'login'
-    }
 
     const showMain = () => {
         setCurrentView(View.Main);
