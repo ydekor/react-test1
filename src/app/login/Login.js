@@ -1,7 +1,11 @@
 import style from './Login.module.css';
+import {useState} from "react";
 
 function Login() {
+    const [errorMessage, setErrorMessage] = useState('');
     const handleLogin = async () => {
+        let status = 0;
+
         const loginInput = document.getElementById('loginInput').value;
         const passwordInput = document.getElementById('passwordInput').value;
 
@@ -10,49 +14,45 @@ function Login() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({login: loginInput, password: passwordInput})
+            body: JSON.stringify({ login: loginInput, password: passwordInput })
         };
+
         fetch('http://alwertus.zapto.org/spab/user/login', request)
-            .then(response => response.json())
+            .then(response => {
+                status = response.status;
+                return response.json()
+            })
             .then(data => {
-                console.log('data', data);
+                console.log('data', status, data);
+                if(status === 200){
+                    console.log('success', data);
+                }else {
+                    setErrorMessage(data.description);
+                }
             })
             .catch(error => {
-                console.log('error', error);
+                console.error(error);
             });
-
-        // const response = await fetch('http://alwertus.zapto.org/spab/user/login', {
-        //    method: 'POST',
-        //    headers: {
-        //        'Content-Type': 'application/json'
-        //    },
-        //    body: JSON.stringify({
-        //        login: loginInput,
-        //        password: passwordInput
-        //    })
-        // });
-        // if(response.ok) {
-        //     console.log('success');
-        // } else {
-        //     console.log('error');
-        // }
     };
 
-    return <div className={style.authentication}>
-        <div className={style.content}>
-            <div className={style.login}>login</div>
-            <div className={style.loginTextField}>
-                <input id="loginInput" type="text" />
-            </div>
-            <div className={style.password}>password</div>
-            <div className={style.passwordTextField}>
-                <input id="passwordInput" type="password" />
-            </div>
-            <div className={style.buttonLogin}>
-                <button onClick={handleLogin}>Login</button>
+    return (
+        <div className={style.authentication}>
+            <div className={style.errorWindow}>{errorMessage}</div>
+            <div className={style.content}>
+                <div className={style.login}>login</div>
+                <div className={style.loginTextField}>
+                    <input id="loginInput" type="text" />
+                </div>
+                <div className={style.password}>password</div>
+                <div className={style.passwordTextField}>
+                    <input id="passwordInput" type="password" />
+                </div>
+                <div className={style.buttonLogin}>
+                    <button onClick={handleLogin}>Login</button>
+                </div>
             </div>
         </div>
-    </div>
+    );
 }
 
 export default Login;
