@@ -3,6 +3,9 @@ import {useState} from "react";
 
 function Login() {
     const [errorMessage, setErrorMessage] = useState('');
+    const handleInputChange = () => {
+        setErrorMessage('');
+    };
     const handleLogin = async () => {
         let status = 0;
 
@@ -37,15 +40,15 @@ function Login() {
 
     return (
         <div className={style.authentication}>
-            <div className={style.errorWindow}>{errorMessage}</div>
+            {errorMessage && <div className={style.errorWindow}>{errorMessage}</div>}
             <div className={style.content}>
                 <div className={style.login}>login</div>
                 <div className={style.loginTextField}>
-                    <input id="loginInput" type="text" />
+                    <input id="loginInput" type="text" onChange={handleInputChange} />
                 </div>
                 <div className={style.password}>password</div>
                 <div className={style.passwordTextField}>
-                    <input id="passwordInput" type="password" />
+                    <input id="passwordInput" type="password" onChange={handleInputChange} />
                 </div>
                 <div className={style.buttonLogin}>
                     <button onClick={handleLogin}>Login</button>
