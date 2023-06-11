@@ -1,3 +1,4 @@
+/*style for Login*/
 .authentication {
     position: fixed;
     top: 50%;
@@ -12,18 +13,16 @@
     padding: 4px;
 }
 
+/*style for LoginForm*/
 .content {
     border: solid 1px lightgreen;
     padding: 4px;
     margin-left: 1px;
-    text-align: center;
-    height: 15vh;
-    width: 24vh;
 }
 
 .login {
     color: darkred;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 .loginTextField {
     color:grey;
@@ -38,6 +37,13 @@
 }
 
 .buttonLogin {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/*style for LogoutForm*/
+.buttonLogout {
     display: flex;
     justify-content: center;
     margin-top: 10px;

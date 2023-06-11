@@ -1,61 +1,27 @@
 import style from './Login.module.css';
-import {useState} from "react";
+import LoginForm from "./LoginForm";
+import LogoutForm from "./LogoutForm";
+import React, { useState } from "react";
+import {handleLogin} from "./LoginApi";
+import {handleLogout} from "./LogoutApi";
 
-function Login() {
+function Login({isLoggedIn, setIsLoggedIn}) {
     const [errorMessage, setErrorMessage] = useState('');
+
     const handleInputChange = () => {
         setErrorMessage('');
     };
-    const handleLogin = async () => {
-        let status = 0;
 
-        const loginInput = document.getElementById('loginInput').value;
-        const passwordInput = document.getElementById('passwordInput').value;
+    const drawErrorMsg = () => {
+        return errorMessage && <div className={style.errorWindow}>{errorMessage}</div>
+    }
 
-        const request = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ login: loginInput, password: passwordInput })
-        };
-
-        fetch('http://alwertus.zapto.org/spab/user/login', request)
-            .then(response => {
-                status = response.status;
-                return response.json()
-            })
-            .then(data => {
-                console.log('data', status, data);
-                if(status === 200){
-                    console.log('success', data);
-                }else {
-                    setErrorMessage(data.description);
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    };
-
-    return (
-        <div className={style.authentication}>
-            {errorMessage && <div className={style.errorWindow}>{errorMessage}</div>}
-            <div className={style.content}>
-                <div className={style.login}>login</div>
-                <div className={style.loginTextField}>
-                    <input id="loginInput" type="text" onChange={handleInputChange} />
-                </div>
-                <div className={style.password}>password</div>
-                <div className={style.passwordTextField}>
-                    <input id="passwordInput" type="password" onChange={handleInputChange} />
-                </div>
-                <div className={style.buttonLogin}>
-                    <button onClick={handleLogin}>Login</button>
-                </div>
-            </div>
-        </div>
-    );
+    return <div className={style.authentication}>
+        {drawErrorMsg()}
+        {isLoggedIn
+            ? <LogoutForm onLogout={() => handleLogout(setIsLoggedIn)} />
+            : <LoginForm onLogin={() => handleLogin(isLoggedIn, setIsLoggedIn, setErrorMessage)} onInputChange={handleInputChange} />
+        }
+    </div>
 }
-
 export default Login;

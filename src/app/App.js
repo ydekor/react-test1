@@ -9,6 +9,7 @@ import {View} from "./helper/LeftButtons";
 function App() {
     const [sidePanelVisible, setSidePanelVisible] = useState(false);
     const [currentView, setCurrentView] = useState(View.Login);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const toggleSidePanel = () => {
         setSidePanelVisible(!sidePanelVisible);
@@ -18,11 +19,13 @@ function App() {
         <TopLine toggleSidePanel={toggleSidePanel}/>
         <div className={style.container}>
             <div>
-                {sidePanelVisible && <LeftPanel setCurrentView={setCurrentView} />}
+                {sidePanelVisible && (
+                    <LeftPanel setCurrentView={setCurrentView} isLoggedIn={isLoggedIn} />
+                )}
             </div>
             <div>
                 {currentView === View.Main && <Content />}
-                {currentView === View.Login && <Login />}
+                {currentView === View.Login && <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
             </div>
         </div>
     </div>
