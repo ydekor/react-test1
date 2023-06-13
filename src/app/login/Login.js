@@ -20,7 +20,10 @@ function Login({isLoggedIn, setIsLoggedIn}) {
         {drawErrorMsg()}
         {isLoggedIn
             ? <LogoutForm onLogout={() => handleLogout(setIsLoggedIn)} />
-            : <LoginForm onLogin={() => handleLogin(isLoggedIn, setIsLoggedIn, setErrorMessage)} onInputChange={handleInputChange} />
+            : <LoginForm
+                onLogin={(login, password) => handleLogin(isLoggedIn, setIsLoggedIn, setErrorMessage, login, password)}
+                onInputChange={handleInputChange}
+            />
         }
     </div>
 }

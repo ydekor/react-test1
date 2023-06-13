@@ -1,15 +1,14 @@
-export const handleLogin = (isLoggedIn, setIsLoggedIn, setErrorMessage) => {
-    const loginInput = document.getElementById('loginInput').value;
-    const passwordInput = document.getElementById('passwordInput').value;
+export const handleLogin = (isLoggedIn, setIsLoggedIn, setErrorMessage, loginInputValue, passwordInputValue) => {
 
     const request = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ login: loginInput, password: passwordInput })
+        body: JSON.stringify({ login: loginInputValue, password: passwordInputValue })
     };
 
+    //
     fetch('http://alwertus.zapto.org/spab/user/login', request)
         .then(response => {
             if (response.status === 200) {
